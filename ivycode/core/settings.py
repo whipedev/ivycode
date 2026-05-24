@@ -11,6 +11,7 @@ from pydantic_settings import (
 )
 
 from ivycode.core.envelope import ModelRef, ProviderName
+from ivycode.providers.profile import ProviderProfile
 
 DEFAULT_ROUTER_MODEL = ModelRef(
     provider=ProviderName.ANTHROPIC,
@@ -40,6 +41,7 @@ class Settings(BaseSettings):
     history_dir: Path = Path.home() / ".ivycode" / "history"
     max_concurrent_providers: PositiveInt = 4
     request_timeout_s: PositiveInt = 120
+    providers: dict[str, ProviderProfile] = Field(default_factory=dict)
 
     @classmethod
     def settings_customise_sources(

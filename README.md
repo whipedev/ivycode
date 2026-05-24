@@ -93,7 +93,7 @@ A single scrollable chat feed where every model is a speaker with its own color 
 
 ## Current implementation
 
-`v0.2.0-ui-foundation` is the current runnable stage.
+`v0.3.0-provider-foundation` is the current runnable stage.
 
 <p align="center">
   <img src="assets/v0.2.0-cli.png" alt="ivycode v0.2.0 — help, doctor, error handling" width="900">
@@ -109,6 +109,7 @@ Implemented:
 - minimal Typer entrypoint
 - `ivycode doctor`
 - Rich UI theme tokens, console singleton, static layout, and basic model panel
+- provider profile contracts, OpenAI-compatible chat codec, HTTP provider, and provider factory
 
 Run:
 

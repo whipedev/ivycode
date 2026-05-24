@@ -14,7 +14,7 @@ console = Console()
 
 def _stage_boundary(command: str) -> None:
     console.print(
-        f"ivycode {command}: not implemented in v0.2.0-ui-foundation",
+        f"ivycode {command}: not implemented in v0.3.0-provider-foundation",
         style="yellow",
     )
     raise typer.Exit(code=2)
