@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="430" viewBox="0 0 1290 430" role="img" aria-labelledby="title desc">
+  <title id="title">ivycode v0.5.0 skills command center</title>
+  <desc id="desc">Terminal output for ivycode skills showing the local command center, builtin graph and filesystem skills, permissions, statuses, and plugin shelf.</desc>
+  <rect width="1290" height="430" fill="#0b0d12"/>
+  <style>
+    .term {
+      font: 700 22px Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      fill: #e6e6e6;
+    }
+    .dim {
+      fill: #6b7280;
+    }
+    .mint {
+      fill: #7cffb2;
+    }
+    .violet {
+      fill: #c7b6ff;
+    }
+    .cyan {
+      fill: #8ab4f8;
+    }
+    .warm {
+      fill: #e5a98c;
+    }
+    .line {
+      stroke: #2a2f3a;
+      stroke-width: 1;
+    }
+  </style>
+  <text class="term violet" x="24" y="34">✦ ivycode skills</text>
+  <text class="term" x="24" y="68">local command center</text>
+  <text class="term dim" x="24" y="102">graph 51 files · 257 symbols · 0 routes</text>
+
+  <rect x="24" y="126" width="1042" height="208" rx="8" fill="#11141b" stroke="#2a2f3a"/>
+  <text class="term mint" x="416" y="164">Builtin Skills</text>
+  <line class="line" x1="48" y1="184" x2="1042" y2="184"/>
+  <line class="line" x1="552" y1="126" x2="552" y2="334"/>
+  <line class="line" x1="878" y1="126" x2="878" y2="334"/>
+
+  <text class="term dim" x="48" y="216">Skill</text>
+  <text class="term dim" x="580" y="216">Permissions</text>
+  <text class="term dim" x="906" y="216">Status</text>
+
+  <text class="term cyan" x="48" y="254">◆ fs.read_file</text>
+  <text class="term" x="580" y="254">can read files inside this project</text>
+  <text class="term cyan" x="906" y="254">project-gated</text>
+
+  <text class="term warm" x="48" y="288">◇ fs.write_file</text>
+  <text class="term" x="580" y="288">can write files inside this project</text>
+  <text class="term warm" x="906" y="288">guarded</text>
+
+  <text class="term mint" x="48" y="322">✓ graph.search_symbols</text>
+  <text class="term" x="580" y="322">can search the local code graph</text>
+  <text class="term mint" x="906" y="322">ready</text>
+
+  <text class="term violet" x="24" y="374">Plugin Shelf</text>
+  <text class="term dim" x="24" y="408">no local plugins saved yet · try: ivycode skills save auth-helper --skill graph.search_symbols</text>
+</svg>
