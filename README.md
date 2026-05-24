@@ -93,7 +93,7 @@ A single scrollable chat feed where every model is a speaker with its own color 
 
 ## Current implementation
 
-`v0.1.0-foundation` is the first runnable stage.
+`v0.2.0-ui-foundation` is the current runnable stage.
 
 Implemented:
 
