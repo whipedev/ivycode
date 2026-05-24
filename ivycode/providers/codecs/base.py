@@ -14,8 +14,7 @@ class CodecAlreadyRegisteredError(RuntimeError):
 
 @runtime_checkable
 class StreamResponse(Protocol):
-    def aiter_lines(self) -> AsyncIterator[str]:
-        ...
+    def aiter_lines(self) -> AsyncIterator[str]: ...
 
 
 @runtime_checkable
@@ -26,15 +25,13 @@ class WireCodec(Protocol):
         self,
         req: ProviderRequest,
         profile: ProviderProfile,
-    ) -> tuple[str, dict[str, object]]:
-        ...
+    ) -> tuple[str, dict[str, object]]: ...
 
     def decode_stream(
         self,
         response: StreamResponse,
         meta: CallerMeta,
-    ) -> AsyncIterator[StreamEvent]:
-        ...
+    ) -> AsyncIterator[StreamEvent]: ...
 
 
 _CODEC_TYPES: dict[WireProtocol, type[Any]] = {}

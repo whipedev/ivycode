@@ -100,9 +100,7 @@ def test_openai_chat_codec_decodes_delta_and_stop_events() -> None:
                 "data: [DONE]",
             ]
         )
-        events = [
-            ev async for ev in OpenAIChatCodec().decode_stream(response, _meta())
-        ]
+        events = [ev async for ev in OpenAIChatCodec().decode_stream(response, _meta())]
         return [ev.text_delta if ev.kind == "delta" else ev.kind for ev in events]
 
     assert asyncio.run(run()) == ["hel", "lo", "stop"]
@@ -116,9 +114,7 @@ def test_openai_chat_codec_decodes_gateway_error_chunk() -> None:
                 "data: [DONE]",
             ]
         )
-        events = [
-            ev async for ev in OpenAIChatCodec().decode_stream(response, _meta())
-        ]
+        events = [ev async for ev in OpenAIChatCodec().decode_stream(response, _meta())]
         return events[0].kind, events[0].error_message
 
     assert asyncio.run(run()) == ("error", "retry later")
