@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ivycode"
+version = "0.1.0"
+description = "Multi-agent CLI platform with semantic CodeGraph."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+  { name = "whipedev" }
+]
+dependencies = [
+  "pydantic>=2.11,<3",
+  "pydantic-settings>=2.8,<3",
+  "rich>=14,<15",
+  "typer>=0.16,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.16,<2",
+  "pytest>=8.4,<9",
+  "ruff>=0.12,<1",
+]
+
+[project.scripts]
+ivycode = "ivycode.cli.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ivycode"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["typer.testing"]
+ignore_missing_imports = true
