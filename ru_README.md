@@ -93,7 +93,13 @@
 
 ## Текущая реализация
 
-`v0.1.0-foundation` — первый запускаемый этап.
+`v0.2.0-ui-foundation` — текущий запускаемый этап.
+
+<p align="center">
+  <img src="assets/v0.2.0-cli.png" alt="ivycode v0.2.0 — help, doctor, обработка ошибок" width="900">
+</p>
+
+<sub align="center">`--help` · `doctor` · аккуратная обработка неизвестных команд — всё через Rich UI-foundation.</sub>
 
 Сделано:
 
@@ -102,6 +108,7 @@
 - runtime-настройки с поддержкой переменных окружения `IVYCODE_`
 - минимальный Typer-entrypoint
 - `ivycode doctor`
+- Rich UI: design-токены, console singleton, static layout, базовая model panel
 
 Запуск:
 
