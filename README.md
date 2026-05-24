@@ -104,6 +104,7 @@ Implemented:
 - runtime settings with `IVYCODE_` environment support
 - minimal Typer entrypoint
 - `ivycode doctor`
+- Rich UI theme tokens, console singleton, static layout, and basic model panel
 
 Run:
 
