@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import asyncio
+from pathlib import Path
 from typing import Annotated
 
 import typer
 from rich.console import Console
 
 from ivycode import __version__
+from ivycode.codegraph import CodeGraphService, CodeGraphStats
 from ivycode.core.settings import Settings
 
 app = typer.Typer(rich_markup_mode="rich", no_args_is_help=True)
@@ -14,7 +17,7 @@ console = Console()
 
 def _stage_boundary(command: str) -> None:
     console.print(
-        f"ivycode {command}: not implemented in v0.3.0-provider-foundation",
+        f"ivycode {command}: not implemented in v0.4.0-codegraph-foundation",
         style="yellow",
     )
     raise typer.Exit(code=2)
@@ -61,8 +64,20 @@ def plan(task: Annotated[str | None, typer.Argument()] = None) -> None:
 @app.command()
 def index(force: Annotated[bool, typer.Option("--force")] = False) -> None:
     """Re-index the current project into CodeGraph."""
-    _ = force
-    _stage_boundary("index")
+    stats = asyncio.run(_run_index(force=force))
+    console.print("ivycode index", style="bold")
+    console.print(f"files indexed {stats.indexed_files_count}")
+    console.print(f"symbols {stats.symbols_count}")
+    console.print(f"routes {stats.routes_count}")
+
+
+async def _run_index(*, force: bool) -> CodeGraphStats:
+    service = CodeGraphService()
+    await service.boot(Path.cwd())
+    try:
+        return await service.index(force=force)
+    finally:
+        await service.shutdown()
 
 
 def main() -> None:

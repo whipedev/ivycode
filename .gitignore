@@ -2,6 +2,7 @@
 .pytest_cache/
 .ruff_cache/
 .venv/
+.ivycode/
 *.egg-info/
 __pycache__/
 *.py[cod]

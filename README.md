@@ -93,7 +93,7 @@ A single scrollable chat feed where every model is a speaker with its own color 
 
 ## Current implementation
 
-`v0.3.0-provider-foundation` is the current runnable stage.
+`v0.4.0-codegraph-foundation` is the current runnable stage.
 
 <p align="center">
   <img src="assets/v0.2.0-cli.png" alt="ivycode v0.2.0 — help, doctor, error handling" width="900">
@@ -110,11 +110,13 @@ Implemented:
 - `ivycode doctor`
 - Rich UI theme tokens, console singleton, static layout, and basic model panel
 - provider profile contracts, OpenAI-compatible chat codec, HTTP provider, and provider factory
+- SQLite-backed CodeGraph foundation with Python symbol indexing, FastAPI route extraction, symbol search, impact radius, and `ivycode index --force`
 
 Run:
 
 ```bash
 python -m ivycode doctor
+python -m ivycode index --force
 ```
 
 Verify:
@@ -124,6 +126,7 @@ python -m pytest -q
 python -m ruff check .
 python -m mypy ivycode
 python -m ivycode doctor
+python -m ivycode index --force
 ```
 
 <br>
