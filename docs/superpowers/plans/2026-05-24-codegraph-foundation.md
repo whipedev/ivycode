@@ -135,7 +135,7 @@ python -m ivycode index --force
 
 Expected: all commands exit with code 0.
 
-- [ ] **Step 2: Commit and push**
+- [x] **Step 2: Commit and push**
 
 Use a multi-paragraph commit message with `What changed`, `Why`, and
 `Validation`.

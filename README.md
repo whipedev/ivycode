@@ -96,10 +96,10 @@ A single scrollable chat feed where every model is a speaker with its own color 
 `v0.4.0-codegraph-foundation` is the current runnable stage.
 
 <p align="center">
-  <img src="assets/v0.2.0-cli.png" alt="ivycode v0.2.0 — help, doctor, error handling" width="900">
+  <img src="assets/v0.4.0-index.svg" alt="ivycode v0.4.0 — index command output" width="900">
 </p>
 
-<sub align="center">`--help` · `doctor` · graceful unknown-command handling — all rendered through the Rich UI foundation.</sub>
+<sub align="center">`index --force` · local CodeGraph indexing stats · SQLite-backed symbol graph</sub>
 
 Implemented:
 

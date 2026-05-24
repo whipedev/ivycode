@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="144" viewBox="0 0 1290 144" role="img" aria-labelledby="title desc">
+  <title id="title">ivycode v0.4.0 index command output</title>
+  <desc id="desc">Terminal output for .venv/bin/python -m ivycode index --force showing 39 indexed files, 200 symbols, and 0 routes.</desc>
+  <rect width="1290" height="144" fill="#171717"/>
+  <style>
+    .term {
+      font: 700 23px Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      fill: #f4f4f4;
+    }
+    .accent {
+      fill: #35d4e5;
+    }
+    .cursor {
+      fill: #b8b8b8;
+    }
+  </style>
+  <text class="term" x="8" y="25" xml:space="preserve">vasiliidyahenko@MacBook-Air--Yaroslav ivycode % .venv/bin/python -m ivycode index --force</text>
+  <text class="term" x="16" y="53">ivycode index</text>
+  <text class="term" x="16" y="81">files indexed <tspan class="accent">39</tspan></text>
+  <text class="term" x="16" y="109">symbols <tspan class="accent">200</tspan></text>
+  <text class="term" x="16" y="137">routes <tspan class="accent">0</tspan></text>
+  <rect class="cursor" x="688" y="142" width="15" height="2"/>
+</svg>
