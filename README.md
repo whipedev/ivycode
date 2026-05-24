@@ -2,13 +2,11 @@
 
 <br>
 
-```
+<img src="assets/logo-dark.png" alt="ivycode" width="520">
 
-        ❖   ι v y c o d e
-        ────────────────────────────────────────────
-        multi-agent CLI for engineers who refuse to wait
+<br>
 
-```
+<sub>[Русский](ru_README.md) · English</sub>
 
 <br>
 
@@ -19,7 +17,7 @@ grounded in a local semantic graph of your codebase.
 
 <br>
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-E5A98C?style=for-the-badge&labelColor=0B0D12)](LICENSE)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-E5A98C?style=for-the-badge&labelColor=0B0D12)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-7CFFB2?style=for-the-badge&labelColor=0B0D12)](https://www.python.org/)
 [![Status: Pre-alpha](https://img.shields.io/badge/status-pre--alpha-A78BFA?style=for-the-badge&labelColor=0B0D12)](#roadmap)
 [![Spec: 25 sections](https://img.shields.io/badge/spec-25_sections-8AB4F8?style=for-the-badge&labelColor=0B0D12)](PROMPT_SPEC.md)
@@ -441,7 +439,7 @@ ivycode gateway serve --host 127.0.0.1 --port 7878
 
 ## ✦ License
 
-[MIT](LICENSE) © 2026 — built for engineers who refuse to wait.
+[GPL-3.0](LICENSE) © 2026 — built for engineers who refuse to wait.
 
 <br>
 
