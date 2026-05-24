@@ -1,0 +1,15 @@
+# Every PR auto-assigns these reviewers.
+# Lines later in the file override earlier lines for matched paths.
+# Format: <pattern> <owner1> <owner2> ...
+
+# Default owner for everything
+*                       @whipedev
+
+# Spec changes need extra care
+/PROMPT_SPEC.md         @whipedev
+/docs/                  @whipedev
+
+# CI / build / packaging
+/.github/               @whipedev
+/pyproject.toml         @whipedev
+/Makefile               @whipedev
