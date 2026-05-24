@@ -17,7 +17,7 @@ dependencies = [
   "httpx[http2]>=0.28,<1",
   "pydantic>=2.11,<3",
   "pydantic-settings>=2.8,<3",
-  "rich>=14,<15",
+  "rich>=14,<16",
   "typer>=0.16,<1",
 ]
 
