@@ -29,9 +29,7 @@ def test_graph_skills_delegate_to_codegraph(tmp_path: Path) -> None:
             arguments={"query": "authenticate"},
         )
 
-        assert [symbol.qualified_name for symbol in result] == [
-            "app.authenticate_user"
-        ]
+        assert [symbol.qualified_name for symbol in result] == ["app.authenticate_user"]
         assert registry.get("graph.get_impact_radius").permissions == ["graph:read"]
         assert registry.get("graph.get_framework_routes").permissions == ["graph:read"]
 

@@ -44,12 +44,10 @@ class ProviderFactory:
     def _build_client(self, profile: ProviderProfile) -> httpx.AsyncClient:
         cfg = profile.transport
         headers = {
-            key: value.get_secret_value()
-            for key, value in cfg.extra_headers.items()
+            key: value.get_secret_value() for key, value in cfg.extra_headers.items()
         }
         cookies = {
-            key: value.get_secret_value()
-            for key, value in cfg.extra_cookies.items()
+            key: value.get_secret_value() for key, value in cfg.extra_cookies.items()
         }
 
         if cfg.auth_kind is AuthKind.BEARER and cfg.api_key is not None:

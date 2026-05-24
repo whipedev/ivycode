@@ -101,9 +101,7 @@ def _parameters_schema(handler: SkillHandler) -> dict[str, Any]:
         if parameter.annotation is not inspect.Signature.empty:
             annotation = parameter.annotation
         default = (
-            ...
-            if parameter.default is inspect.Signature.empty
-            else parameter.default
+            ... if parameter.default is inspect.Signature.empty else parameter.default
         )
         fields[parameter.name] = (annotation, default)
 

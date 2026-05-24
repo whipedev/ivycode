@@ -36,8 +36,7 @@ def test_parse_python_source_extracts_symbols_and_routes() -> None:
 
     assert by_name["app.auth.AuthService"].kind == "class"
     assert (
-        by_name["app.auth.AuthService"].docstring_summary
-        == "Authentication service."
+        by_name["app.auth.AuthService"].docstring_summary == "Authentication service."
     )
     assert by_name["app.auth.AuthService.authenticate_user"].kind == "method"
     assert by_name["app.auth.AuthService.authenticate_user"].signature == (

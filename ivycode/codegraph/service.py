@@ -136,7 +136,7 @@ class CodeGraphService:
                    FROM calls c
                   WHERE c.caller = s.qualified_name) AS callees_count
             FROM symbols s
-            WHERE {' AND '.join(clauses)}
+            WHERE {" AND ".join(clauses)}
             ORDER BY
                 CASE WHEN lower(s.name) LIKE ? THEN 0 ELSE 1 END,
                 CASE WHEN lower(s.qualified_name) LIKE ? THEN 0 ELSE 1 END,
