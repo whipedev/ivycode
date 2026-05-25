@@ -1,0 +1,20 @@
+Command:
+  .venv/bin/python -m ivycode skills inspect fs.write_file
+
+Output:
+ivycode skill · fs.write_file
+▤ Write a project file inside the current project root.
+
+permissions
+  [FS·R] can read files inside this project
+  [FS·W] can write files inside this project
+
+parameters
+╭───────────┬──────┬──────────┬─────────┬─────────────╮
+│ Name      │ Type │ Required │ Default │ Description │
+├───────────┼──────┼──────────┼─────────┼─────────────┤
+│ file_path │ str  │ yes      │ —       │ —           │
+│ content   │ str  │ yes      │ —       │ —           │
+╰───────────┴──────┴──────────┴─────────┴─────────────╯
+usage
+  ivycode skills run fs.write_file --arg file_path=<text> --arg content=<text>

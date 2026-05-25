@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="500" viewBox="0 0 1290 500" role="img" aria-labelledby="title desc">
+  <title id="title">ivycode v0.6.0 skills UI polish</title>
+  <desc id="desc">Terminal-style screenshot showing ivycode skills list with namespace glyphs, descriptions, compact permission badges, and risk labels.</desc>
+  <rect width="1290" height="500" fill="#0b0d12"/>
+  <style>
+    .term {
+      font: 700 22px Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      fill: #e6e6e6;
+    }
+    .small {
+      font: 700 19px Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      fill: #e6e6e6;
+    }
+    .dim { fill: #6b7280; }
+    .mint { fill: #7cffb2; }
+    .violet { fill: #c7b6ff; }
+    .warm { fill: #ffb070; }
+    .error { fill: #ff6b6b; }
+    .line {
+      stroke: #2a2f3a;
+      stroke-width: 1;
+    }
+  </style>
+
+  <text class="term violet" x="24" y="38">✦ ivycode skills · 5 builtins</text>
+  <text class="term" x="24" y="74">local command center</text>
+  <text class="term dim" x="24" y="110">graph 51 files · 257 symbols · 0 routes</text>
+
+  <rect x="24" y="134" width="1242" height="288" rx="8" fill="#11141b" stroke="#2a2f3a"/>
+  <line class="line" x1="24" y1="182" x2="1266" y2="182"/>
+  <line class="line" x1="112" y1="134" x2="112" y2="422"/>
+  <line class="line" x1="468" y1="134" x2="468" y2="422"/>
+  <line class="line" x1="846" y1="134" x2="846" y2="422"/>
+  <line class="line" x1="1092" y1="134" x2="1092" y2="422"/>
+
+  <text class="term dim" x="48" y="166">Glyph</text>
+  <text class="term dim" x="136" y="166">Skill</text>
+  <text class="term dim" x="492" y="166">Description</text>
+  <text class="term dim" x="870" y="166">Permissions</text>
+  <text class="term dim" x="1116" y="166">Risk</text>
+
+  <text class="term warm" x="52" y="216">▤</text>
+  <text class="small" x="136" y="216">fs.read_file</text>
+  <text class="small" x="492" y="216">Read a project file, line range optional.</text>
+  <text class="small dim" x="870" y="216">[FS·R]</text>
+  <text class="small dim" x="1116" y="216">read</text>
+
+  <text class="term warm" x="52" y="264">▤</text>
+  <text class="small" x="136" y="264">fs.write_file</text>
+  <text class="small" x="492" y="264">Write a file inside the project root.</text>
+  <text class="small" x="870" y="264"><tspan class="dim">[FS·R]</tspan> <tspan class="warm">[FS·W]</tspan></text>
+  <text class="small warm" x="1116" y="264">write</text>
+
+  <text class="term mint" x="52" y="312">◈</text>
+  <text class="small" x="136" y="312">graph.search_symbols</text>
+  <text class="small" x="492" y="312">Search symbols with local CodeGraph.</text>
+  <text class="small dim" x="870" y="312">[GRAPH·R]</text>
+  <text class="small dim" x="1116" y="312">read</text>
+
+  <text class="term mint" x="52" y="360">◈</text>
+  <text class="small" x="136" y="360">graph.get_impact_radius</text>
+  <text class="small" x="492" y="360">Find callers for a symbol.</text>
+  <text class="small dim" x="870" y="360">[GRAPH·R]</text>
+  <text class="small dim" x="1116" y="360">read</text>
+
+  <text class="term mint" x="52" y="408">◈</text>
+  <text class="small" x="136" y="408">graph.get_framework_routes</text>
+  <text class="small" x="492" y="408">List framework routes.</text>
+  <text class="small dim" x="870" y="408">[GRAPH·R]</text>
+  <text class="small dim" x="1116" y="408">read</text>
+
+  <text class="term violet" x="24" y="462">Plugin Shelf</text>
+  <text class="term dim" x="220" y="462">no local plugins saved yet · suggested: ivycode skills inspect fs.read_file</text>
+</svg>

@@ -93,13 +93,13 @@ A single scrollable chat feed where every model is a speaker with its own color 
 
 ## Current implementation
 
-`v0.5.0-skills-foundation` is the current runnable stage.
+`v0.6.0-skills-ui-polish` is the current runnable stage.
 
 <p align="center">
-  <img src="assets/v0.5.0-skills.svg" alt="ivycode v0.5.0 — skills command center" width="900">
+  <img src="assets/v0.6.0-skills-ui.svg" alt="ivycode v0.6.0 — skills UI polish" width="900">
 </p>
 
-<sub align="center">`skills` · local command center · graph/fs tools · plugin shelf</sub>
+<sub align="center">`skills` · local command center · graph/fs tools · polished inspect/run/save UX</sub>
 
 Implemented:
 
@@ -112,6 +112,7 @@ Implemented:
 - provider profile contracts, OpenAI-compatible chat codec, HTTP provider, and provider factory
 - SQLite-backed CodeGraph foundation with Python symbol indexing, FastAPI route extraction, symbol search, impact radius, and `ivycode index --force`
 - Skills foundation with builtin graph/fs tools, project-gated file access, local plugin shell saving, and the `ivycode skills` command center
+- Skills UI polish with namespace glyphs, compact permission badges, risk metadata, pretty `inspect`, human/JSON `run`, Rich skill error panels, and guarded `save --yes`
 
 Run:
 
@@ -119,6 +120,9 @@ Run:
 python -m ivycode doctor
 python -m ivycode index --force
 python -m ivycode skills
+python -m ivycode skills list
+python -m ivycode skills inspect fs.write_file
+python -m ivycode skills run fs.read_file --arg file_path=README.md
 ```
 
 Verify:
@@ -130,6 +134,8 @@ python -m mypy ivycode
 python -m ivycode doctor
 python -m ivycode index --force
 python -m ivycode skills
+python -m ivycode skills list
+python -m ivycode skills inspect fs.write_file
 ```
 
 <br>

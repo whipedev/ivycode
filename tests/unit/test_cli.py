@@ -9,8 +9,8 @@ from ivycode import __version__
 from ivycode.cli.app import app
 
 
-def test_package_version_is_skills_foundation() -> None:
-    assert __version__ == "0.5.0"
+def test_package_version_is_skills_ui_polish() -> None:
+    assert __version__ == "0.6.0"
 
 
 def test_doctor_reports_foundation_status() -> None:
@@ -20,7 +20,7 @@ def test_doctor_reports_foundation_status() -> None:
 
     assert result.exit_code == 0
     assert "ivycode doctor" in result.output
-    assert "version 0.5.0" in result.output
+    assert "version 0.6.0" in result.output
     assert "foundation ready" in result.output
 
 
@@ -30,7 +30,7 @@ def test_future_commands_report_stage_boundary() -> None:
     for command in ("chat", "plan"):
         result = runner.invoke(app, [command])
         assert result.exit_code == 2
-        assert "not implemented in v0.5.0-skills-foundation" in result.output
+        assert "not implemented in v0.6.0-skills-ui-polish" in result.output
 
 
 def test_index_command_indexes_current_directory(

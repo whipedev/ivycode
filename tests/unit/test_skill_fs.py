@@ -39,4 +39,7 @@ def test_register_fs_skills() -> None:
     register_fs_skills(registry)
 
     assert registry.get("fs.read_file").permissions == ["fs:read"]
-    assert registry.get("fs.write_file").permissions == ["fs:write"]
+    write_definition = registry.get("fs.write_file")
+    assert write_definition.permissions == ["fs:read", "fs:write"]
+    assert write_definition.risk == "write"
+    assert write_definition.idempotent is False
