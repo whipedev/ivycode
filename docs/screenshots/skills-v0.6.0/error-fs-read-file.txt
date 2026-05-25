@@ -1,0 +1,11 @@
+Command:
+  .venv/bin/python -m ivycode skills run fs.read_file --arg file_path=README.md --arg line_start=3 --arg line_end=1
+
+Output:
+╭─ ✗ fs.read_file failed ──────────────────────────────────────────────────────╮
+│ ValueError                                                                   │
+│ line_end must be >= line_start                                               │
+│ arguments                                                                    │
+│ {'file_path': 'README.md', 'line_start': 3, 'line_end': 1}                   │
+│ Use --json for machine-readable failures.                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯

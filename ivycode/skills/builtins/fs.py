@@ -10,6 +10,8 @@ from ivycode.skills.runtime import SkillRuntime
     name="fs.read_file",
     description="Read a project file, optionally restricted to a line range.",
     permissions=["fs:read"],
+    risk="read",
+    idempotent=True,
 )
 async def read_file(
     runtime: SkillRuntime,
@@ -35,7 +37,10 @@ async def read_file(
 @skill(
     name="fs.write_file",
     description="Write a project file inside the current project root.",
-    permissions=["fs:write"],
+    permissions=["fs:read", "fs:write"],
+    risk="write",
+    requires_confirmation=False,
+    idempotent=False,
 )
 async def write_file(
     runtime: SkillRuntime,

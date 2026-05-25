@@ -27,6 +27,9 @@ def test_registry_registers_decorated_async_skill(tmp_path: Path) -> None:
     assert definition.name == "demo.echo"
     assert definition.description == "Echo a value."
     assert definition.permissions == ["demo:read"]
+    assert definition.risk == "read"
+    assert definition.requires_confirmation is False
+    assert definition.idempotent is True
     assert "value" in definition.parameters_schema["properties"]
     assert definition.parameters_schema["required"] == ["value"]
 

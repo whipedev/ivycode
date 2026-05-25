@@ -3,11 +3,12 @@ from __future__ import annotations
 import json
 import re
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 from pydantic import Field
 
-from ivycode.core.envelope import IvyBaseModel
+from ivycode.core.envelope import IvyBaseModel, utc_now
 
 _SLUG_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -16,6 +17,7 @@ class PluginManifest(IvyBaseModel):
     slug: str
     description: str
     skills: list[str] = Field(min_length=1)
+    created_at: datetime = Field(default_factory=utc_now)
     created_by: str = "ivycode"
     manifest_version: int = 1
 
@@ -31,13 +33,13 @@ class PluginStore:
         description: str,
         skills: list[str],
     ) -> PluginManifest:
-        _validate_slug(slug)
+        self.validate_slug(slug)
         manifest = PluginManifest(
             slug=slug,
             description=description,
             skills=skills,
         )
-        target = self.plugin_root / slug
+        target = self.plugin_path(slug)
         temp = self.plugin_root / f".{slug}.tmp"
         if target.exists():
             raise FileExistsError(f"plugin already exists: {slug}")
@@ -57,6 +59,16 @@ class PluginStore:
             raise
 
         return manifest
+
+    def validate_slug(self, slug: str) -> None:
+        _validate_slug(slug)
+
+    def plugin_path(self, slug: str) -> Path:
+        self.validate_slug(slug)
+        return self.plugin_root / slug
+
+    def plugin_exists(self, slug: str) -> bool:
+        return self.plugin_path(slug).exists()
 
     def list_plugins(self) -> list[PluginManifest]:
         if not self.plugin_root.exists():

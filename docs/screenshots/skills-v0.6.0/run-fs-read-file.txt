@@ -1,0 +1,23 @@
+Command:
+  .venv/bin/python -m ivycode skills run fs.read_file --arg file_path=README.md --arg line_start=96 --arg line_end=112
+
+Output:
+╭─ ✓ fs.read_file · 6ms ───────────────────────────────────────────────────────╮
+│ `v0.6.0-skills-ui-polish` is the current runnable stage.                     │
+│                                                                              │
+│ <p align="center">                                                           │
+│   <img src="assets/v0.6.0-skills-ui.svg" alt="ivycode v0.6.0 — skills UI     │
+│ polish" width="900">                                                        │
+│ </p>                                                                         │
+│                                                                              │
+│ <sub align="center">`skills` · local command center · graph/fs tools ·       │
+│ polished inspect/run/save UX</sub>                                           │
+│                                                                              │
+│ Implemented:                                                                 │
+│                                                                              │
+│ - project metadata and strict tool configuration                             │
+│ - immutable Pydantic envelope contracts                                      │
+│ - runtime settings with `IVYCODE_` environment support                       │
+│ - minimal Typer entrypoint                                                   │
+│ - `ivycode doctor`                                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯

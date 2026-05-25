@@ -57,6 +57,7 @@ MODEL_THEMES: dict[ProviderName, ModelTheme] = {
 
 ROUTER_THEME = ModelTheme(glyph="✦", border="#A78BFA", accent="#C7B6FF")
 LOCAL_MODEL_THEME = ModelTheme(glyph="■", border="#94A3B8", accent="#CBD5E1")
+DEFAULT_SKILL_THEME = ModelTheme(glyph="◇", border="#6B7280", accent="#E6E6E6")
 
 SUBAGENT_THEMES: dict[AgentName, ModelTheme] = {
     AgentName.ROUTER: ROUTER_THEME,
@@ -64,6 +65,12 @@ SUBAGENT_THEMES: dict[AgentName, ModelTheme] = {
     AgentName.REFACTORER: ModelTheme(glyph="✧", border="#7CFFB2", accent="#B4FFD0"),
     AgentName.TESTER: ModelTheme(glyph="✧", border="#8AB4F8", accent="#C7D8FB"),
     AgentName.DOCUMENTER: ModelTheme(glyph="✧", border="#A78BFA", accent="#D7C9FF"),
+}
+
+SKILL_NAMESPACE_THEMES: dict[str, ModelTheme] = {
+    "fs": ModelTheme(glyph="▤", border="#FFB070", accent="#F3C7AE"),
+    "graph": ModelTheme(glyph="◈", border="#7CFFB2", accent="#B4FFD0"),
+    "plugin": ModelTheme(glyph="✦", border="#A78BFA", accent="#D7C9FF"),
 }
 
 
@@ -79,3 +86,8 @@ def theme_for_provider(provider: ProviderName | str) -> ModelTheme:
 
 def theme_for_agent(agent: AgentName) -> ModelTheme:
     return SUBAGENT_THEMES[agent]
+
+
+def theme_for_skill(skill_name: str) -> ModelTheme:
+    namespace = skill_name.partition(".")[0]
+    return SKILL_NAMESPACE_THEMES.get(namespace, DEFAULT_SKILL_THEME)

@@ -10,6 +10,8 @@ from ivycode.skills.runtime import SkillRuntime
     name="graph.search_symbols",
     description="Search code symbols by name using the local CodeGraph index.",
     permissions=["graph:read"],
+    risk="read",
+    idempotent=True,
 )
 async def search_symbols(
     runtime: SkillRuntime,
@@ -24,6 +26,8 @@ async def search_symbols(
     name="graph.get_impact_radius",
     description="Find direct and transitive callers for a CodeGraph symbol.",
     permissions=["graph:read"],
+    risk="read",
+    idempotent=True,
 )
 async def get_impact_radius(
     runtime: SkillRuntime,
@@ -37,6 +41,8 @@ async def get_impact_radius(
     name="graph.get_framework_routes",
     description="List framework routes discovered by CodeGraph.",
     permissions=["graph:read"],
+    risk="read",
+    idempotent=True,
 )
 async def get_framework_routes(
     runtime: SkillRuntime,
