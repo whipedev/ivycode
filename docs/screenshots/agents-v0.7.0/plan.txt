@@ -1,0 +1,44 @@
+Command:
+  .venv/bin/python -m ivycode plan "refactor login flow"
+
+Output excerpt:
+{
+  "summary": "Plan for refactor login flow grounded in the local CodeGraph.",
+  "risk_level": "medium",
+  "estimated_total_tokens": 8000,
+  "steps": [
+    {
+      "id": "step_01",
+      "kind": "graph_query",
+      "rationale": "Ground the request in CodeGraph symbols before delegation.",
+      "graph_query": {
+        "method": "search_symbols",
+        "arguments": {
+          "query": "refactor login flow",
+          "limit": 20
+        }
+      }
+    },
+    {
+      "id": "step_02",
+      "kind": "subagent",
+      "depends_on": ["step_01"],
+      "subagent": {
+        "agent": "architect",
+        "allowed_skills": [
+          "graph.search_symbols",
+          "graph.get_impact_radius",
+          "graph.get_framework_routes",
+          "fs.read_file"
+        ],
+        "token_budget": 6000
+      }
+    },
+    {
+      "id": "step_03",
+      "kind": "aggregate",
+      "depends_on": ["step_02"]
+    }
+  ],
+  "final_aggregator": "router"
+}

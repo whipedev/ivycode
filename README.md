@@ -93,7 +93,7 @@ A single scrollable chat feed where every model is a speaker with its own color 
 
 ## Current implementation
 
-`v0.6.0-skills-ui-polish` is the current runnable stage.
+`v0.7.0-agents-router-architect` is the current runnable stage.
 
 <p align="center">
   <img src="assets/v0.6.0-skills-ui.svg" alt="ivycode v0.6.0 — skills UI polish" width="900">
@@ -113,6 +113,7 @@ Implemented:
 - SQLite-backed CodeGraph foundation with Python symbol indexing, FastAPI route extraction, symbol search, impact radius, and `ivycode index --force`
 - Skills foundation with builtin graph/fs tools, project-gated file access, local plugin shell saving, and the `ivycode skills` command center
 - Skills UI polish with namespace glyphs, compact permission badges, risk metadata, pretty `inspect`, human/JSON `run`, Rich skill error panels, and guarded `save --yes`
+- Stage 6 agents foundation with `RouterAgent`, `AgentMediator`, `ArchitectSubAgent`, CodeGraph-first `ExecutionPlan`, and runnable `ivycode plan`
 
 Run:
 
@@ -123,6 +124,7 @@ python -m ivycode skills
 python -m ivycode skills list
 python -m ivycode skills inspect fs.write_file
 python -m ivycode skills run fs.read_file --arg file_path=README.md
+python -m ivycode plan "refactor login flow"
 ```
 
 Verify:
@@ -136,6 +138,7 @@ python -m ivycode index --force
 python -m ivycode skills
 python -m ivycode skills list
 python -m ivycode skills inspect fs.write_file
+python -m ivycode plan "refactor login flow"
 ```
 
 <br>

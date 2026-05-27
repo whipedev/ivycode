@@ -16,7 +16,10 @@ from rich.table import Table
 from rich.text import Text
 
 from ivycode import __version__
+from ivycode.agents import AgentMediator, RouterAgent, RouterContext
+from ivycode.agents.subagents import ArchitectSubAgent
 from ivycode.codegraph import CodeGraphService, CodeGraphStats
+from ivycode.core.envelope import ExecutionPlan
 from ivycode.core.settings import Settings
 from ivycode.skills.builtins import register_builtin_skills
 from ivycode.skills.registry import SkillDefinition, SkillRegistry
@@ -41,7 +44,7 @@ def _stage_boundary(command: str) -> None:
         Panel(
             (
                 f"ivycode {command} is not implemented in "
-                "v0.6.0-skills-ui-polish.\n"
+                "v0.7.0-agents-router-architect.\n"
                 "This command is reserved for the next agent orchestration stage."
             ),
             title="stage boundary",
@@ -84,10 +87,10 @@ def chat(
 
 
 @app.command()
-def plan(task: Annotated[str | None, typer.Argument()] = None) -> None:
+def plan(task: Annotated[str, typer.Argument()]) -> None:
     """Produce an ExecutionPlan for the given task without executing it."""
-    _ = task
-    _stage_boundary("plan")
+    execution_plan = asyncio.run(_run_plan(task))
+    console.print_json(execution_plan.model_dump_json())
 
 
 @app.command()
@@ -107,6 +110,26 @@ async def _run_index(*, force: bool) -> CodeGraphStats:
         return await service.index(force=force)
     finally:
         await service.shutdown()
+
+
+async def _run_plan(task: str) -> ExecutionPlan:
+    settings = Settings()
+    registry = _create_registry()
+    mediator = AgentMediator()
+    mediator.register(ArchitectSubAgent(model=settings.default_router_model))
+    codegraph = CodeGraphService()
+    await codegraph.boot(Path.cwd())
+    try:
+        await codegraph.index(force=False)
+        snapshot = await codegraph.snapshot_for(task)
+        router = RouterAgent(
+            mediator=mediator,
+            skills=registry,
+            model=settings.default_router_model,
+        )
+        return await router.plan(RouterContext(user_task=task, snapshot=snapshot))
+    finally:
+        await codegraph.shutdown()
 
 
 @skills_app.callback(invoke_without_command=True)
